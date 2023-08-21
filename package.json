@@ -28,7 +28,6 @@
     "gh-pages": "^6.0.0",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
-    "vite": "^4.3.9",
-    "homepage": "https://Sergi0ZM.github.io/react-ecommerce-course/"
+    "vite": "^4.3.9"
   }
 }
