@@ -3,7 +3,7 @@ import { ShoppingCartContext } from "../../Context";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
-  const context = useContext(ShoppingCartContext);
+  const {cartProducts, setSearchByCategory} = useContext(ShoppingCartContext);
   const activeStyle = "underline underline-offset-4";
   return (
     <nav className="flex justify-between items-center fixed top-0 z-10 w-full py-5 px-8 text-sm font-light">
@@ -14,6 +14,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/"
+            onClick={() => setSearchByCategory()}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             All
@@ -22,6 +23,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/clothes"
+            onClick={() => setSearchByCategory("men's clothing")}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Clothes
@@ -30,6 +32,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/electronics"
+            onClick={() => setSearchByCategory('electronics')}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Electronics
@@ -37,15 +40,17 @@ function Navbar() {
         </li>
         <li>
           <NavLink
-            to="/furnitures"
+            to="/jewelerys"
+            onClick={() => setSearchByCategory('jewelery')}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Furnitures
+            Jewelery
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/toys"
+            onClick={() => setSearchByCategory('toys')}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Toys
@@ -54,6 +59,7 @@ function Navbar() {
         <li>
           <NavLink
             to="/others"
+            onClick={() => setSearchByCategory('others')}
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Others
@@ -99,7 +105,7 @@ function Navbar() {
               clipRule="evenodd"
             />
           </svg>
-          {context.count}
+          {cartProducts.length}
         </li>
       </ul>
     </nav>
